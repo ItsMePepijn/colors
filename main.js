@@ -13,7 +13,7 @@ const auto = document.getElementById('auto')
 auto.addEventListener('click', async () => {
   while(auto.checked){
     addColor(Math.random() * window.innerWidth, Math.random() * window.innerHeight)
-    await new Promise(r => setTimeout(r, getSpeed() * 1000));
+    await new Promise(r => setTimeout(r, (getSpeed() * 0.6) * 1000));
   }
 })
 
