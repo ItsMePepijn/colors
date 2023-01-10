@@ -13,8 +13,7 @@ const auto = document.getElementById('auto')
 auto.addEventListener('click', async () => {
   while(auto.checked){
     addColor(Math.random() * window.innerWidth, Math.random() * window.innerHeight)
-    const speed = (3 - ((document.getElementById('speed').value) / 50 * 2)) * 1000
-    await new Promise(r => setTimeout(r, speed));
+    await new Promise(r => setTimeout(r, getSpeed() * 1000));
   }
 })
 
@@ -28,10 +27,15 @@ function setTextTimeout(delay){
   }, delay)
 }
 
+function getSpeed(){
+  return (5 - ((document.getElementById('speed').value / 100) * 5))
+}
+
 function addColor(x, y){
   allowed = false
 
-  const speed = 3 - ((document.getElementById('speed').value) / 50 * 2)
+  const speed = getSpeed()
+  console.log(speed)
 
   const newElement = document.createElement('div')
   newElement.classList.add('color')
@@ -45,12 +49,15 @@ function addColor(x, y){
   setTextTimeout((speed + 5) * 1000)
 
   setTimeout(() => {
+    allowed = true
+  }, (speed * 0.6) * 1000);
+
+  setTimeout(() => {
     newElement.remove()
     document.body.style.backgroundColor = newElement.style.backgroundColor
-    allowed = true
 
     const title = document.querySelector('h1')
     if(title) title.remove(); 
 
-  }, speed * 1000)
+  }, (speed) * 1000)
 }
