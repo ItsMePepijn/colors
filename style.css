@@ -63,39 +63,3 @@ tr{
   border-radius: 100%;
   animation: grow ease-in-out forwards;
 }
-
-@keyframes grow {
-  from {
-    transform: scale(0%);
-  }
-  to {
-    transform: scale(100%);
-  }
-}
-
-@keyframes appear {
-  from {
-    transform: scale(0%);
-  }
-  to {
-    transform: scale(100%);
-  }
-}
-
-@keyframes jump {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(35deg) translateY(-90px) translateX(50px);
-  }
-  50% {
-    transform: rotate(0deg);
-  }
-  75% {
-    transform: rotate(-35deg) translateY(-90px) translateX(-50px);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
