@@ -35,7 +35,6 @@ function addColor(x, y){
   allowed = false
 
   const speed = getSpeed()
-  console.log(speed)
 
   const newElement = document.createElement('div')
   newElement.classList.add('color')
@@ -48,9 +47,7 @@ function addColor(x, y){
 
   setTextTimeout((speed + 5) * 1000)
 
-  setTimeout(() => {
-    allowed = true
-  }, (speed * 0.6) * 1000);
+  setTimeout(() => allowed = true, (speed * 0.6) * 1000);
 
   setTimeout(() => {
     newElement.remove()
@@ -59,5 +56,5 @@ function addColor(x, y){
     const title = document.querySelector('h1')
     if(title) title.remove(); 
 
-  }, (speed) * 1000)
+  }, speed * 1000)
 }
